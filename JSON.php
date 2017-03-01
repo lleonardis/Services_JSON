@@ -355,6 +355,7 @@ class Services_JSON
             case 'string':
                 // STRINGS ARE EXPECTED TO BE IN ASCII OR UTF-8 FORMAT
                 $ascii = '';
+                $var = iconv("ISO-8859-1", "UTF-8", $var);
                 $strlen_var = $this->strlen8($var);
 
                /*
