@@ -141,11 +141,17 @@ class Services_JSON
     */
     function Services_JSON($use = 0)
     {
+        return $this->__construct($use);
+    }
+
+    function __construct($use = 0)
+    {
         $this->use = $use;
         $this->_mb_strlen            = function_exists('mb_strlen');
         $this->_mb_convert_encoding  = function_exists('mb_convert_encoding');
         $this->_mb_substr            = function_exists('mb_substr');
     }
+
     // private - cache the mbstring lookup results..
     var $_mb_strlen = false;
     var $_mb_substr = false;
@@ -982,6 +988,12 @@ if (class_exists('PEAR_Error')) {
         function Services_JSON_Error($message = 'unknown error', $code = null,
                                      $mode = null, $options = null, $userinfo = null)
         {
+            return $this->__construct($message, $code, $mode, $options, $userinfo);
+        }
+
+        function __construct($message = 'unknown error', $code = null,
+                                     $mode = null, $options = null, $userinfo = null)
+        {
             parent::PEAR_Error($message, $code, $mode, $options, $userinfo);
         }
     }
@@ -994,6 +1006,12 @@ if (class_exists('PEAR_Error')) {
     class Services_JSON_Error
     {
         function Services_JSON_Error($message = 'unknown error', $code = null,
+                                     $mode = null, $options = null, $userinfo = null)
+        {
+            return $this->__construct($message, $code, $mode, $options, $userinfo);
+        }
+
+        function __construct($message = 'unknown error', $code = null,
                                      $mode = null, $options = null, $userinfo = null)
         {
 
